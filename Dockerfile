@@ -84,8 +84,8 @@ LABEL maintainer="danxiaonuo <danxiaonuo@danxiaonuo.me>" \
       versions.dumb-init=${DUMBINIT_VERSION}
 
 
-# 修改源
-RUN sed -i s#http://*.*ubuntu.com#http://mirrors.aliyun.com#g /etc/apt/sources.list
+# 修改源地址
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 # ***** 安装相关依赖并更新系统软件 *****
 # ***** 安装依赖 *****
 RUN set -eux \
