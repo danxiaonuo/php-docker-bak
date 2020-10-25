@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  php:
+    tty: true
+    restart: always
+    container_name: php
+    hostname: php
+    image: danxiaonuo/php:latest
+    volumes:
+     # php.ini
+     - ./conf/php/php.production.ini:/usr/local/etc/php/php.ini:ro,cached
+     # php.ini override
+     - ./conf/php/etc/php/docker-php.ini:/usr/local/etc/php/docker-php.ini:ro,cached
+     # fpm config
+     - ./conf/php/etc/php-fpm.d/zz-docker.production.conf:/usr/local/etc/php-fpm.d/zz-docker.conf:ro,cached
+     # php logs
+     - ./logs/php:/var/log/php:delegated
+     # 同步宿主机时区与时间
+     - /usr/share/zoneinfo:/usr/share/zoneinfo:ro,cached
+     - /etc/localtime:/etc/localtime:ro,cached
+    cap_add:
+     - ALL
+    sysctls:
+     - net.ipv4.tcp_ecn=1
+     - net.ipv4.tcp_ecn_fallback=1
+     - net.ipv4.tcp_congestion_control=bbrplus
+    ulimits:
+      nproc: 65535
+      nofile:
+          soft: 65535
+          hard: 65535
+    expose:
+    - "9000"
+    dns:
+    - 114.114.114.114
+    - 119.29.29.29
