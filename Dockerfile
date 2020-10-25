@@ -157,9 +157,9 @@ curl -Lo /usr/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/
 chmod +x /usr/bin/dumb-init
 
 # 拷贝配置文件
-COPY conf/php/php.ini /usr/local/etc/php/php.ini
+COPY conf/php/php.production.ini /usr/local/etc/php/php.ini
 COPY conf/php/docker-php.ini /usr/local/etc/php/docker-php.ini
-COPY conf/php/zz-docker.conf /usr/local/etc/php-fpm.d/zz-docker.conf
+COPY conf/php/zz-docker.production.conf /usr/local/etc/php-fpm.d/zz-docker.conf
 
 # 容器信号处理
 STOPSIGNAL SIGQUIT
