@@ -11,9 +11,9 @@ services:
      # php.ini
      - ./conf/php/php.production.ini:/usr/local/etc/php/php.ini:ro,cached
      # php.ini override
-     - ./conf/php/etc/php/docker-php.ini:/usr/local/etc/php/docker-php.ini:ro,cached
+     - ./conf/php/docker-php.ini:/usr/local/etc/php/docker-php.ini:ro,cached
      # fpm config
-     - ./conf/php/etc/php-fpm.d/zz-docker.production.conf:/usr/local/etc/php-fpm.d/zz-docker.conf:ro,cached
+     - ./conf/php/zz-docker.production.conf:/usr/local/etc/php-fpm.d/zz-docker.conf:ro,cached
      # php logs
      - ./logs/php:/var/log/php:delegated
      # 同步宿主机时区与时间
