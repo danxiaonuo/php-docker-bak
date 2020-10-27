@@ -80,7 +80,6 @@ LABEL maintainer="danxiaonuo <danxiaonuo@danxiaonuo.me>" \
       org.label-schema.url="https://github.com/$DOCKER_IMAGE" \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url="https://github.com/$DOCKER_IMAGE" \
-      org.label-schema.version="$NGINX_VERSION-$DOCKER_IMAGE_OS$DOCKER_IMAGE_TAG" \
       versions.dumb-init=${DUMBINIT_VERSION}
 
 
