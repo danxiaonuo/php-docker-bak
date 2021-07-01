@@ -55,6 +55,8 @@ ARG PHP_BUILD_DEPS="\
       libpng-dev \
       gmp \
       gmp-dev \
+      gettext \
+      gettext-dev \
       libmemcached-dev \
       imagemagick-dev \
       libzip-dev \
@@ -141,6 +143,7 @@ docker-php-ext-install -j "$(nproc)"                    \
     gmp                                                 \
     redis                                               \
     iconv                                               \
+    gettext                                             \
     gd                                                  \
     memcached                                       &&  \
 docker-php-ext-configure opcache --enable-opcache           &&  \
